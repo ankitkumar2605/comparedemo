@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.ttn.comparedemo.FormActivity" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <TextView
+            android:id="@+id/tv_label_holding_mode"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="21dp"
+            android:layout_marginTop="27dp"
+            android:text="FirstName"
+            app:layout_constraintEnd_toStartOf="@+id/tv_label_colon"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintHorizontal_weight="0.4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_label_colon"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text=":"
+            app:layout_constraintEnd_toStartOf="@+id/tv_holding_mode"
+            app:layout_constraintHorizontal_weight="0.02"
+            app:layout_constraintStart_toEndOf="@+id/tv_label_holding_mode"
+            app:layout_constraintTop_toTopOf="@id/tv_label_holding_mode" />
+
+        <EditText
+            android:id="@+id/tv_holding_mode"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="21dp"
+            android:layout_marginStart="21dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_weight="0.58"
+            app:layout_constraintStart_toEndOf="@+id/tv_label_colon"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_label_holding_mode1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="21dp"
+            android:layout_marginTop="27dp"
+            android:text="LastName"
+            app:layout_constraintEnd_toStartOf="@+id/tv_label_colon1"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintHorizontal_weight="0.4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_label_holding_mode" />
+
+        <TextView
+            android:id="@+id/tv_label_colon1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text=":"
+            app:layout_constraintEnd_toStartOf="@+id/tv_holding_mode1"
+            app:layout_constraintHorizontal_weight="0.02"
+            app:layout_constraintStart_toEndOf="@+id/tv_label_holding_mode1"
+            app:layout_constraintTop_toTopOf="@id/tv_label_holding_mode1" />
+
+        <EditText
+            android:id="@+id/tv_holding_mode1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="21dp"
+            android:layout_marginStart="21dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_weight="0.58"
+            app:layout_constraintStart_toEndOf="@+id/tv_label_colon1"
+            app:layout_constraintTop_toBottomOf="@id/tv_holding_mode" />
+
+        <ImageView
+            android:id="@+id/ib"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_launcher_background"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_holding_mode1" />
+
+        <Button
+            android:id="@+id/button_upload"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Upload Image"
+            android:onClick="@{()->viewModel.onImageClick()}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ib"/>
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:onClick="@{()->viewModel.onSubmit()}"
+            android:text="Submit"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/button_upload" />
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

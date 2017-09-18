@@ -1,0 +1,43 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion "26.0.0"
+    defaultConfig {
+        applicationId "com.ttn.comparedemo"
+        minSdkVersion 19
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    dataBinding {
+        enabled = true
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    Map<String, String> dependencies = rootProject.ext.dependencies;
+    compile dependencies.appCompat
+    compile dependencies.design
+    compile dependencies.retrofit
+    compile dependencies.retrofitConverterGson
+    compile dependencies.rxAndroid
+    compile 'io.reactivex.rxjava2:rxjava:2.1.0'
+    compile 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
+
+
+
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile('com.squareup.okhttp3:logging-interceptor:3.4.1') {
+        exclude module: 'okhttp3'
+    }
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+}
