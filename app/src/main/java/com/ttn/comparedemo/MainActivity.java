@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         activityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         activityMainBinding.setViewModel(this);
+        setTitle("Welcome");
 
     }
 
@@ -27,6 +28,12 @@ public class MainActivity extends AppCompatActivity {
     public void openForm() {
 
         Intent intent = new Intent(this, FormActivity.class);
+        startActivity(intent);
+    }
+
+    public void scanCard() {
+
+        Intent intent = new Intent(this, MyScanActivity.class);
         startActivity(intent);
     }
 

@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">CompareDemo</string>
+    <string name="app_name">NativeAppDemo</string>
+    <string name="message_need_storage_permission">You need to grant access of storage to perform this action.</string>
+
 </resources>

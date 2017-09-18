@@ -15,6 +15,15 @@
         android:layout_height="match_parent"
         tools:context="com.ttn.comparedemo.MainActivity">
 
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="148dp"
+            android:layout_marginTop="56dp"
+            android:src="@mipmap/ic_launcher"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <Button
             android:id="@+id/button_list_screen"
             android:layout_width="wrap_content"
@@ -22,24 +31,40 @@
             android:background="@color/colorPrimary"
             android:onClick="@{()->viewModel.getData()}"
             android:padding="10dp"
-            android:text="Go to list screen!"
+            android:text="Sample List View"
             android:textColor="#ffffff"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
 
         <Button
+            android:id="@+id/button_form"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
             android:background="@color/colorPrimary"
             android:onClick="@{()->viewModel.openForm()}"
             android:padding="10dp"
-            android:text="Go to form page!"
+            android:text="Sample Form"
             android:textColor="#ffffff"
-            app:layout_constraintBottom_toBottomOf="@id/button_list_screen"
+            app:layout_constraintHorizontal_bias="0.501"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </android.support.constraint.ConstraintLayout>
+            app:layout_constraintTop_toBottomOf="@id/button_list_screen" />
+
+        <!--<Button
+            android:id="@+id/button_credit_card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:onClick="@{()->viewModel.scanCard()}"
+            android:padding="10dp"
+            android:text="Scan Card"
+            android:textColor="#ffffff"
+            android:layout_marginTop="10dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button_form" />
+    --></android.support.constraint.ConstraintLayout>
 </layout>

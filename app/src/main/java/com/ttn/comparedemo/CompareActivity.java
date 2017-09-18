@@ -29,8 +29,8 @@ public class CompareActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-      activityCompareBinding = DataBindingUtil.setContentView(this,R.layout.activity_compare);
-
+        activityCompareBinding = DataBindingUtil.setContentView(this, R.layout.activity_compare);
+        setTitle("Sample List View");
         setupRecyclerView();
         APIService service = getRetrofitAPIClient();
 
@@ -56,21 +56,21 @@ public class CompareActivity extends AppCompatActivity {
 
                     @Override
                     public void onNext(CompareData compareData) {
-                     setRudList(compareData.data.searchResponses);
+                        setRudList(compareData.data.searchResponses);
 
                     }
                 });
     }
 
-    public static  APIService getRetrofitAPIClient(){
-        APIService  apiService = null;
-        if(apiService == null){
-            Retrofit retrofit =new Retrofit.Builder()
+    public static APIService getRetrofitAPIClient() {
+        APIService apiService = null;
+        if (apiService == null) {
+            Retrofit retrofit = new Retrofit.Builder()
                     .baseUrl("http://www.mocky.io/v2/")
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create()).addConverterFactory(GsonConverterFactory.create()).build();
             apiService = retrofit.create(APIService.class);
         }
-        return  apiService;
+        return apiService;
     }
 
     protected void setupRecyclerView() {
