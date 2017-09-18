@@ -52,40 +52,6 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/tv_label_holding_mode1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="21dp"
-            android:layout_marginTop="27dp"
-            android:text="DOB"
-            app:layout_constraintEnd_toStartOf="@+id/tv_label_colon1"
-            app:layout_constraintHorizontal_chainStyle="spread"
-            app:layout_constraintHorizontal_weight="0.4"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_label_holding_mode" />
-
-        <TextView
-            android:id="@+id/tv_label_colon1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text=":"
-            app:layout_constraintEnd_toStartOf="@+id/tv_holding_mode1"
-            app:layout_constraintHorizontal_weight="0.02"
-            app:layout_constraintStart_toEndOf="@+id/tv_label_holding_mode1"
-            app:layout_constraintTop_toTopOf="@id/tv_label_holding_mode1" />
-
-        <EditText
-            android:id="@+id/tv_holding_mode1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="21dp"
-            android:layout_marginStart="21dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_weight="0.58"
-            app:layout_constraintStart_toEndOf="@+id/tv_label_colon1"
-            app:layout_constraintTop_toBottomOf="@id/tv_holding_mode" />
-
-        <TextView
             android:id="@+id/tv_label_email"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -96,7 +62,7 @@
             app:layout_constraintHorizontal_chainStyle="spread"
             app:layout_constraintHorizontal_weight="0.4"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_label_holding_mode1" />
+            app:layout_constraintTop_toBottomOf="@id/tv_label_holding_mode" />
 
         <TextView
             android:id="@+id/tv_label_colon2"
@@ -107,7 +73,7 @@
             app:layout_constraintHorizontal_weight="0.02"
             app:layout_constraintStart_toEndOf="@+id/tv_label_email"
             app:layout_constraintTop_toTopOf="@id/tv_label_email"
-            app:layout_constraintTop_toBottomOf="@id/tv_holding_mode1" />
+            app:layout_constraintTop_toBottomOf="@id/tv_holding_mode" />
 
         <EditText
             android:id="@+id/tv_holding_mode2"
@@ -118,7 +84,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_weight="0.58"
             app:layout_constraintStart_toEndOf="@+id/tv_label_colon2"
-            app:layout_constraintTop_toBottomOf="@id/tv_holding_mode1" />
+            app:layout_constraintTop_toBottomOf="@id/tv_holding_mode" />
 
         <TextView
             android:id="@+id/tv_label_profile"
@@ -164,7 +130,8 @@
             android:onClick="@{()->viewModel.onSubmit()}"
             android:text="Submit"
             app:layout_constraintTop_toBottomOf="@id/ib"
-            tools:layout_editor_absoluteX="148dp" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
 
     </android.support.constraint.ConstraintLayout>

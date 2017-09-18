@@ -20,6 +20,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
 import android.text.TextUtils;
 import android.util.Log;
+import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
@@ -70,8 +71,8 @@ public class FormActivity extends AppCompatActivity {
             formActivityBinding.tvHoldingMode.setError("Please fill this field");
             return;
         }
-        if (TextUtils.isEmpty(formActivityBinding.tvHoldingMode1.getText().toString())) {
-            formActivityBinding.tvHoldingMode1.setError("Please fill this field");
+        if (!isValidEmailId(formActivityBinding.tvHoldingMode2.getText().toString())) {
+            formActivityBinding.tvHoldingMode2.setError("Enter valid Email ID");
             return;
         }
         APIService service = getRetrofitAPIClient();
@@ -257,6 +258,11 @@ public class FormActivity extends AppCompatActivity {
             });
         }
     }
+
+    public static boolean isValidEmailId(String email) {
+        return Patterns.EMAIL_ADDRESS.matcher(email).matches();
+    }
+
 
 
 }
