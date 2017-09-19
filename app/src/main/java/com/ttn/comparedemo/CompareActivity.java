@@ -1,6 +1,8 @@
 package com.ttn.comparedemo;
 
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
+import android.databinding.ObservableField;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DividerItemDecoration;
@@ -24,6 +26,9 @@ public class CompareActivity extends AppCompatActivity {
     LinearLayoutManager mLayoutManager;
     RecyclerView.Adapter mAdapter;
     ActivityCompareBinding activityCompareBinding;
+    public ObservableField<String> logoUrl = new ObservableField<>();
+
+
 
 
     @Override
@@ -56,7 +61,7 @@ public class CompareActivity extends AppCompatActivity {
 
                     @Override
                     public void onNext(CompareData compareData) {
-                        setRudList(compareData.data.searchResponses);
+                        setRudList(compareData.data);
 
                     }
                 });
@@ -66,7 +71,7 @@ public class CompareActivity extends AppCompatActivity {
         APIService apiService = null;
         if (apiService == null) {
             Retrofit retrofit = new Retrofit.Builder()
-                    .baseUrl("http://www.mocky.io/v2/")
+                    .baseUrl("http://10.1.1.71:8080/")
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create()).addConverterFactory(GsonConverterFactory.create()).build();
             apiService = retrofit.create(APIService.class);
         }
@@ -84,9 +89,14 @@ public class CompareActivity extends AppCompatActivity {
         activityCompareBinding.rvData.setLayoutManager(mLayoutManager);
     }
 
-    public void setRudList(ArrayList<CompareData.SearchResponse> schemeNameList) {
-        mAdapter = new CompareAdapter(schemeNameList);
+    public void setRudList(ArrayList<ProfileData> schemeNameList) {
+        mAdapter = new CompareAdapter(schemeNameList,this);
         activityCompareBinding.rvData.setAdapter(mAdapter);
+    }
 
+    public void showDetails(ProfileData profileData){
+        Intent intent = new Intent(this, DetailsActivity.class);
+        intent.putExtra("Details",profileData);
+        startActivity(intent);
     }
 }

@@ -1,14 +1,26 @@
 package com.ttn.comparedemo;
 
 import io.reactivex.Observable;
+import okhttp3.MultipartBody;
+import retrofit2.http.Body;
 import retrofit2.http.GET;
+import retrofit2.http.Multipart;
+import retrofit2.http.POST;
+import retrofit2.http.Part;
 
 public interface APIService {
-    @GET("59bb99040f0000d901ff8640")
+    @GET("form/list")
     Observable<CompareData> getData();
 
-    @GET("59bf5bf6260000be0452624d")
-    Observable<SubmitData> submitData();
+
+    @Multipart
+    @POST("form/profile/upload")
+    Observable<ProfileImageUploadResponse> uploadImage(@Part MultipartBody.Part file);
+
+    @POST("form")
+    Observable<SubmitData> saveDetails(@Body ProfileData sipTransactionModel);
+
+
 
 
 }

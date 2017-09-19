@@ -32,9 +32,6 @@ dependencies {
     compile dependencies.rxAndroid
     compile 'io.reactivex.rxjava2:rxjava:2.1.0'
     compile 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
-    compile files('libs/infocard.jar')
-    compile files('libs/opencv library - 2.4.8.jar')
-
 
 
     compile 'com.github.bumptech.glide:glide:3.7.0'

@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName;
 
 public class SubmitData {
 
-    @SerializedName("msg")
+    @SerializedName("message")
     public String msg;
 
 }

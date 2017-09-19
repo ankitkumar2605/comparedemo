@@ -6,8 +6,8 @@
     <data>
 
         <variable
-            name="viewModel"
-            type="com.ttn.comparedemo.FormActivity" />
+            name="model"
+            type="com.ttn.comparedemo.ProfileData" />
     </data>
 
     <ScrollView
@@ -36,18 +36,7 @@
                     android:layout_centerHorizontal="true"
                     android:background="#ffffff"
                     android:src="@drawable/profile_default"
-                    android:srcprofile="@{viewModel.logoUrl}" />
-
-                <ImageView
-                    android:id="@+id/iv_edit_profile"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignStart="@id/iv_profile"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginStart="35dp"
-                    android:layout_marginTop="30dp"
-                    android:onClick="@{()->viewModel.onImageClick()}"
-                    android:src="@drawable/ic_icon_edit_profile" />
+                    android:srcprofile="@{model.profilePicUrl}" />
 
             </RelativeLayout>
 
@@ -75,17 +64,17 @@
                 app:layout_constraintStart_toEndOf="@+id/tv_label_holding_mode"
                 app:layout_constraintTop_toTopOf="@id/tv_label_holding_mode" />
 
-            <EditText
+            <TextView
                 android:id="@+id/tv_holding_mode"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="21dp"
                 android:layout_marginStart="21dp"
-                android:maxLines="1"
+                android:text="@{model.name}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_weight="0.58"
                 app:layout_constraintStart_toEndOf="@+id/tv_label_colon"
-                app:layout_constraintTop_toBottomOf="@id/rl_profile_image" />
+                app:layout_constraintTop_toTopOf="@id/tv_label_holding_mode" />
 
             <TextView
                 android:id="@+id/tv_label_email"
@@ -111,17 +100,17 @@
                 app:layout_constraintTop_toBottomOf="@id/tv_holding_mode"
                 app:layout_constraintTop_toTopOf="@id/tv_label_email" />
 
-            <EditText
+            <TextView
                 android:id="@+id/tv_holding_mode2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="21dp"
                 android:layout_marginStart="21dp"
-                android:maxLines="1"
+                android:text="@{model.email}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_weight="0.58"
                 app:layout_constraintStart_toEndOf="@+id/tv_label_colon2"
-                app:layout_constraintTop_toBottomOf="@id/tv_holding_mode" />
+                app:layout_constraintTop_toTopOf="@id/tv_label_email" />
 
 
             <TextView
@@ -147,18 +136,17 @@
                 app:layout_constraintStart_toEndOf="@+id/tv_label_phone"
                 app:layout_constraintTop_toTopOf="@+id/tv_label_phone" />
 
-            <EditText
+            <TextView
                 android:id="@+id/tv_phone"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="21dp"
                 android:layout_marginStart="21dp"
-                android:maxLines="1"
-                android:inputType="number"
+                android:text="@{model.phone}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_weight="0.58"
                 app:layout_constraintStart_toEndOf="@+id/tv_label_colon3"
-                app:layout_constraintTop_toBottomOf="@id/tv_holding_mode2" />
+                app:layout_constraintTop_toTopOf="@id/tv_label_phone" />
 
             <TextView
                 android:id="@+id/tv_label_street_address"
@@ -183,17 +171,17 @@
                 app:layout_constraintStart_toEndOf="@+id/tv_label_street_address"
                 app:layout_constraintTop_toTopOf="@+id/tv_label_street_address" />
 
-            <EditText
+            <TextView
                 android:id="@+id/tv_street_address"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="21dp"
                 android:layout_marginStart="21dp"
-                android:maxLines="1"
+                android:text="@{model.street}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_weight="0.58"
                 app:layout_constraintStart_toEndOf="@+id/tv_label_colon4"
-                app:layout_constraintTop_toBottomOf="@+id/tv_phone" />
+                app:layout_constraintTop_toTopOf="@+id/tv_label_street_address" />
 
             <TextView
                 android:id="@+id/tv_label_city"
@@ -218,17 +206,17 @@
                 app:layout_constraintStart_toEndOf="@+id/tv_label_city"
                 app:layout_constraintTop_toTopOf="@+id/tv_label_city" />
 
-            <EditText
+            <TextView
                 android:id="@+id/tv_city"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="21dp"
                 android:layout_marginStart="21dp"
-                android:maxLines="1"
+                android:text="@{model.city}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_weight="0.58"
                 app:layout_constraintStart_toEndOf="@+id/tv_label_colon5"
-                app:layout_constraintTop_toBottomOf="@+id/tv_street_address" />
+                app:layout_constraintTop_toTopOf="@+id/tv_label_city" />
 
             <TextView
                 android:id="@+id/tv_label_pincode"
@@ -253,35 +241,19 @@
                 app:layout_constraintStart_toEndOf="@+id/tv_label_pincode"
                 app:layout_constraintTop_toTopOf="@+id/tv_label_pincode" />
 
-            <EditText
+            <TextView
                 android:id="@+id/tv_pincode"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="21dp"
                 android:layout_marginStart="21dp"
                 android:inputType="number"
-                android:maxLines="1"
+                android:text="@{model.pin}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_weight="0.58"
                 app:layout_constraintStart_toEndOf="@+id/tv_label_colon6"
-                app:layout_constraintTop_toBottomOf="@+id/tv_city" />
+                app:layout_constraintTop_toTopOf="@+id/tv_label_pincode" />
 
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="42dp"
-                android:layout_marginTop="56dp"
-                android:background="@color/colorPrimary"
-                android:onClick="@{()->viewModel.onSubmit()}"
-                android:text="Submit"
-                android:textColor="#ffffff"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_pincode" />
-
-            <include
-                android:id="@+id/included"
-                layout="@layout/view_progress" />
 
 
         </android.support.constraint.ConstraintLayout>

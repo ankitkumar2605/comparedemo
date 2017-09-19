@@ -106,9 +106,9 @@ public class BitMapWorker extends AsyncTask<Void, File, Bitmap> {
     }
 
     public void onPostExecute(Bitmap bitmap) {
-        if (imageViewWeakReference != null && bitmap != null && activityWeakReference.get() instanceof FormActivity) {
-            final ImageView imageView = imageViewWeakReference.get();
-            imageView.setImageBitmap(bitmap);
+
+        if (activityWeakReference.get() != null && activityWeakReference.get() instanceof OnImageUploadListener) {
+            ((OnImageUploadListener) activityWeakReference.get()).uploadImage(mFile);
         }
 
     }

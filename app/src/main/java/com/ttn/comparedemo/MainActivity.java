@@ -33,9 +33,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void scanCard() {
 
-        Intent intent = new Intent(this, MyScanActivity.class);
+    /*    Intent intent = new Intent(this, MyScanActivity.class);
         startActivity(intent);
-    }
+    */}
 
 
 }
